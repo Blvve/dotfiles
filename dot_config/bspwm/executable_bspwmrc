@@ -1,0 +1,46 @@
+#! /bin/sh
+
+# fix cursor
+xsetroot -cursor_name left_ptr
+
+# set monitors and virtual desktops
+if xrandr --listmonitors | grep -q HDMI1; then
+	xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1
+	bspc monitor eDP1 -d 6 7 8 9 10
+	bspc monitor HDMI1 -d 1 2 3 4 5 
+else
+	bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+fi
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
+
+#### AUTOSTART ####
+pgrep -x sxhkd > /dev/null || sxhkd & # sxhkd for keyboard shortcuts
+
+# System settings
+xsettingsd & # to apply various settings in the background. Mainly for GTK themes
+xinput set-prop "$(xinput list --name-only | grep -i touchpad)" "libinput Tapping Enabled" 1 & # should turn on touch click
+syndaemon -i 0.5 -t -K -R -d & # disables touchpad key presses while typing. Only necessary if touch click is enabled.  
+xset s off & xset dpms 0 0 0 & # turn off suspend on inactivity (I'm not sure this works tho)
+env XSECURELOCK_FONT="DejaVuSansM Nerd Font:size=20" xss-lock xsecurelock & # set screen lock method
+# setxkbmap -option caps:swapescape # swap caps lock and scape (now done with keyd)
+
+
+# Graphical
+picom --backend glx --fade-exclude 'class_g = "xsecurelock"' & # compositor. Options for compatibility with xsecurelock
+# $HOME/scripts/theme-load & # Load last used theme for bar and wallpaper
+wal -R -e && $HOME/scripts/wal-reload.sh & # As above but for pywal
+
+
+# Other apps
+dunst & # notification manager
+nm-applet & # network manager applet
+udiskie --tray & # manage removable media
+blueman-applet & # bluetooth
+keepassxc & # password manager
+# mullvad-vpn & # vpn

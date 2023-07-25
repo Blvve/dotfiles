@@ -1,0 +1,18 @@
+#!/bin/bash
+
+XSETTINGS_FILE="$HOME/.config/xsettingsd/xsettingsd.conf"
+THEME=$(awk '/Net\/ThemeName/ {print $2}' $XSETTINGS_FILE)
+
+if [[ $THEME =~ dark ]] ; then
+	CURRENT="dark"
+	NEW="light"
+else
+	CURRENT="light"
+	NEW="dark"
+fi
+
+NEW_THEME=$(echo $THEME | sed s/$CURRENT/$NEW/)
+sed -i s/$THEME/$NEW_THEME/g $XSETTINGS_FILE
+
+killall -HUP xsettingsd
+

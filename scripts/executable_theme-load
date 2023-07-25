@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Dependencies: xsettingsd gnome-themes-extra polybar feh
+
+# Load theme file
+THEMES_PATH="$HOME/.config/themes"
+WALLPAPERS_PATH="$HOME/pictures/Wallpapers"
+
+[ -z "$1" ] || cat $THEMES_PATH/$1 > $THEMES_PATH/config/current_theme
+source ${THEMES_PATH}"/config/current_theme"
+
+
+#### GTK ####
+# Using xsettingsd with config file at
+XSETTINGS_FILE="$HOME/.config/xsettingsd/xsettingsd.conf"
+
+# Find current GTK theme. It is stored between "
+CURRENT_GTK_THEME=$(awk '/Net\/ThemeName/ {print $2}' $XSETTINGS_FILE)
+
+# Set GTK theme and reload settings
+sed -i s/$CURRENT_GTK_THEME/\"$GTK_THEME\"/ $XSETTINGS_FILE
+killall -HUP xsettingsd
+
+
+
+
+# Launch polybar
+~/.config/polybar/launch.sh 
+
+# Set wallpaper
+feh --bg-fill --no-fehbg $WALLPAPERS_PATH/$WALLPAPER 

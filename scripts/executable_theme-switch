@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Script to rotate themes as indicated by the file $THEMES_CONFIG/active
+
+THEMES_CONFIG="$HOME/.config/themes/config"
+
+# Source current theme to get theme name
+source $THEMES_CONFIG/current_theme
+
+# Get number of themes available
+NUM_ACTIVE=$(grep "" -c $THEMES_CONFIG/active)
+# Get index of current theme in the file
+INDEX=$(grep -m1 -Fxn $THEME $THEMES_CONFIG/active | cut -d: -f1)
+# Get new index
+NEW_INDEX=$((1+$INDEX%$NUM_ACTIVE))
+# Get new theme
+NEW_THEME=$(cat $THEMES_CONFIG/active | sed -n ${NEW_INDEX}p)
+#Load new theme
+$HOME/scripts/theme-load $NEW_THEME 

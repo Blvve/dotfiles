@@ -1,0 +1,6 @@
+#!/bin/bash
+
+XSETTINGS_FILE="$HOME/.config/xsettingsd/xsettingsd.conf"
+THEME=$(awk '/Net\/ThemeName/ {print $2}' $XSETTINGS_FILE)
+
+$(echo $THEME | grep -q dark) && echo "dark" || echo "light"
