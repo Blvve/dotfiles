@@ -27,6 +27,8 @@ alias ls='ls --color=auto'
 export LSGNT=$HOME/Documents/LSGNT
 alias lsgnt='cd $LSGNT/year-1' 
 
+alias cm='chezmoi'
+
 # harsh habit tracker
 # alias h="harsh"
 # alias hc="nvim ~/.config/harsh/habits"
@@ -34,13 +36,6 @@ alias lsgnt='cd $LSGNT/year-1'
 
 # TheFuck for correcting commands
 eval "$(thefuck --alias f)"
-
-
-
-#### DOTFILE MANAGEMENT (See wiki) ####
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-source /usr/share/bash-completion/completions/git
-__git_complete config __git_main
 
 
 
