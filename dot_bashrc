@@ -2,8 +2,6 @@
 # ~/.bashrc
 #
 
-#It seems the test are not over
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
