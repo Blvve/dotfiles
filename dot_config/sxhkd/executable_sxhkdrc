@@ -168,7 +168,7 @@ super + {_, shift +}n
 
 # change desktop theme
 XF86Launch5
-	wal -i pictures/Wallpapers/ --iterative --backend colorz -e -o ~/scripts/wal-reload.sh # colorz seems to have good contrast between color0 and color1 (good for polybar)
+	wal -i pictures/wallpapers/ --iterative --backend colorz -e -o ~/scripts/wal-reload.sh # colorz seems to have good contrast between color0 and color1 (good for polybar)
 	# ~/scripts/theme-switch
 
 # toggle light/dark
@@ -193,24 +193,18 @@ super + ctrl + t
 super + ctrl + r
 	alacritty -e ranger
 
-super + ctrl + e
-	evince
-
 super + ctrl + p
 	keepassxc
-
-super +ctrl + v
-	mullvad-vpn
 
 #
 # Other actions/scripts
 # 
 
 Print
-	scrot ~/Pictures/Screenshots/'%Y-%m-%d_$wx$h.png'
+	scrot ~/pictures/screenshots/'%Y-%m-%d_$wx$h.png'
 
 ctrl + Print
-	scrot --focused ~/Pictures/Screenshots/'%Y-%m-%d_$wx$h.png'
+	scrot --focused ~/pictures/screenshots/'%Y-%m-%d_$wx$h.png'
 
 #ctrl + Print
 #	scrot --select ~/Pictures/Screenshots/'%Y-%m-%d_$wx$h.png'
