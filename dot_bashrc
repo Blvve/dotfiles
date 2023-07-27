@@ -24,7 +24,7 @@ complete -cf sudo doas
 alias ls='ls --color=auto'
 
 # getting to lsgnt dir fast
-export LSGNT=$HOME/Documents/lsgnt
+export LSGNT=$HOME/documents/lsgnt
 alias lsgnt='cd $LSGNT/year-1' 
 
 alias cm='chezmoi'
