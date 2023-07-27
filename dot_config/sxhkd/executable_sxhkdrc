@@ -128,23 +128,23 @@ super + {Left,Down,Up,Right}
 
 # volume up
 XF86AudioRaiseVolume
-	pamixer -i 4
+	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 4%+
 
-# Slow volume up (allow over 100)
+# Slow volume up (allow up to 150%)
 shift + XF86AudioRaiseVolume
-	pamixer --allow-boost -i 1
+	wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 1%+
 
 # volume down
 XF86AudioLowerVolume
-	pamixer --allow-boost -d 4
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%-
 
 # Slow volume down
 shift + XF86AudioLowerVolume
-	pamixer --allow-boost -d 1
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 
 # mute
 XF86AudioMute
-	pamixer -t
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 # brightness up
 XF86MonBrightnessUp
