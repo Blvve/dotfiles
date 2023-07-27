@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: check readability of primary over background with pastel.
 # Colors from pywal
 source ~/.cache/wal/colors.sh	
 
