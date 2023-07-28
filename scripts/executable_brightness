@@ -1,6 +1,10 @@
 #!/bin/bash 
 
 # Simple script to change brightness level by editing the corresponding file.
+# Requires an udev rule to change the permissions of the file and allowing 
+# users from the video group to edit it.
+# (see https://wiki.archlinux.org/title/Backlight#ACPI)
+
 # Expects one parameter for the percentage increment.
 
 intel_backlight=/sys/class/backlight/intel_backlight
