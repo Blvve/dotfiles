@@ -167,12 +167,12 @@ super + {_, shift +}n
 	dunstctl {history-pop, close-all}
 
 # change desktop theme
-XF86Launch5
+{{ if eq .chezmoi.hostname "archlinux" }}XF86Messenger{{ else }}XF86Launch5{{ end }}
 	wal -i pictures/wallpapers/ --iterative --backend colorz -e -o ~/scripts/wal-reload.sh # colorz seems to have good contrast between color0 and color1 (good for polybar)
 	# ~/scripts/theme-switch
 
 # toggle light/dark
-shift + XF86Launch5
+shift + {{ if eq .chezmoi.hostname "archlinux" }}XF86Messenger{{ else }}XF86Launch5{{ end }}
 	~/scripts/toggle-dark
 
 #
