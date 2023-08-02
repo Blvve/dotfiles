@@ -146,6 +146,10 @@ shift + XF86AudioLowerVolume
 XF86AudioMute
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
+# mic mute
+XF86AudioMicMute
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
 # brightness up
 XF86MonBrightnessUp
 	brightness 5
