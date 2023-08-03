@@ -17,15 +17,7 @@
 ;==========================================================
 
 [colors]
-;background = #282A2E
-;background-alt = #373B41
-;foreground = #C5C8C6
-;primary = #F0C674
-;secondary = #8ABEB7
-;alert = #A54242
-;disabled = #707880
-
-;background = #1F293A 
+# takes colors from launch script
 background = ${env:background}
 background-alt = ${env:background_alt} 
 foreground = ${env:foreground}
@@ -40,7 +32,6 @@ disabled = #707880
 monitor = {{ .primarymonitor }}
 
 width = 100%
-# height = 24pt
 height = 24pt
 radius = 6
 
@@ -60,12 +51,15 @@ module-margin = 1
 separator = |
 separator-foreground = ${colors.disabled}
 
-font-0 = "DejaVuSans Mono;3"
+# main font
+font-0 = "DejaVuSans Mono:size={{ if eq .chezmoi.hostname "archlinux" }}11{{ else }}12{{ end }};3"
+# battery icon
 font-1 = "DejaVuSansM Nerd Font;3"
+# brightness icon
 font-2 = "DejaVu Sans;3"
 
 modules-left = xworkspaces xwindow
-modules-right = filesystem pulseaudio backlight memory cpu wlan eth battery date
+modules-right = filesystem pulseaudio backlight memory cpu wlan battery date
 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
@@ -103,8 +97,11 @@ module-margin = 1
 separator = |
 separator-foreground = ${colors.disabled}
 
-font-0 = "DejaVuSans Mono;3"
+# main font
+font-0 = "DejaVuSans Mono:size=11;3"
+# battery icon
 font-1 = "DejaVuSansM Nerd Font;3"
+# brightness icon
 font-2 = "DejaVu Sans;3"
 
 modules-left = xworkspaces xwindow
