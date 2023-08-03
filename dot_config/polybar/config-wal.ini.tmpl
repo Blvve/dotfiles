@@ -98,7 +98,7 @@ separator = |
 separator-foreground = ${colors.disabled}
 
 # main font
-font-0 = "DejaVuSans Mono:size=11;3"
+font-0 = "DejaVuSans Mono:size={{ if eq .chezmoi.hostname "archlinux" }}11{{ else }}12{{ end }};3"
 # battery icon
 font-1 = "DejaVuSansM Nerd Font;3"
 # brightness icon
