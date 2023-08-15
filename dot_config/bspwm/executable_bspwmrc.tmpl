@@ -28,7 +28,7 @@ xinput set-prop "$(xinput list --name-only | grep -i touchpad)" "libinput Tappin
 syndaemon -i 0.5 -t -K -R -d & # disables touchpad key presses while typing. Only necessary if touch click is enabled.  
 xset s off & xset dpms 0 0 0 & # turn off suspend on inactivity (I'm not sure this works tho)
 env XSECURELOCK_FONT="DejaVuSansM Nerd Font:size=20" xss-lock xsecurelock & # set screen lock method
-# setxkbmap -option caps:swapescape # swap caps lock and scape (now done with keyd)
+pactl load-module module-switch-on-connect & # I believe this makes it so that bluetooth headphones are connected automatically
 
 
 # Graphical
