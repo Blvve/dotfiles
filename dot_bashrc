@@ -25,7 +25,7 @@ alias ls='ls --color=auto'
 
 # getting to lsgnt dir fast
 export LSGNT=$HOME/documents/lsgnt
-alias lsgnt='cd $LSGNT/year-1' 
+alias lsgnt='cd $LSGNT/year-2'
 
 alias cm='chezmoi'
 
