@@ -52,3 +52,5 @@ include dark-256.theme
 #include no-color.theme
 
 news.version=2.6.0
+context.lsgnt.read=project:lsgnt or +aled
+context=lsgnt
