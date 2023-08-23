@@ -18,7 +18,7 @@ local plugins = {
 
 
   -- LINTING ----------------------------
-  'jose-elias-alvarez/null-ls.nvim',
+  -- 'jose-elias-alvarez/null-ls.nvim',
 
 
   -- LSP --------------------------------
