@@ -21,18 +21,29 @@ complete -cf sudo doas
 
 
 #### ALIASES ####
+# colors
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
-# getting to lsgnt dir fast
+# security
+alias doas='doas -- '
+alias sudo='doas'
+alias cp='cp -i'
+
+#naivation
 export LSGNT=$HOME/documents/lsgnt
 alias lsgnt='cd $LSGNT/year-2'
 
+# maintenance
 alias cm='chezmoi'
+alias cleanup='doas pacman -Rns $(pacman -Qtdq)'
+alias mirror='doas reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
 
-# harsh habit tracker
-# alias h="harsh"
-# alias hc="nvim ~/.config/harsh/habits"
-# alias hl="nvim ~/.config/harsh/log"
+# editing
+alias vim='nvim'
+
+# fixes
+alias tapping='xinput set-prop "$(xinput list --name-only | grep -i touchpad)" "libinput Tapping Enabled" 1'
 
 # TheFuck for correcting commands
 eval "$(thefuck --alias f)"
