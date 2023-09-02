@@ -37,7 +37,7 @@ alias lsgnt='cd $LSGNT/year-2'
 # maintenance
 alias cm='chezmoi'
 alias cleanup='doas pacman -Rns $(pacman -Qtdq)'
-alias mirror='doas reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
+alias getmirrors='doas reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
 
 # editing
 alias vim='nvim'
