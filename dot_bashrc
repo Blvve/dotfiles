@@ -30,7 +30,7 @@ alias doas='doas -- '
 alias sudo='doas'
 alias cp='cp -i'
 
-#naivation
+#navigation
 export LSGNT=$HOME/documents/lsgnt
 alias lsgnt='cd $LSGNT/year-2'
 
